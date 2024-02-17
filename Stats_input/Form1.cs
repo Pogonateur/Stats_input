@@ -30,5 +30,28 @@ namespace Stats_input
             };
             Process.Start(psi);
         }
+
+        private void pictureBox1_DragDrop(object sender, DragEventArgs e)
+        {
+            var data = e.Data.GetData(DataFormats.FileDrop);
+            if (data != null)
+            {
+                var filenames = data as string[];
+                if (filenames.Length > 0)
+                {
+                    statsPictureBox.Image = Image.FromFile(filenames[0]);
+                }
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            statsPictureBox.AllowDrop = true;
+        }
+
+        private void statsPictureBox_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
     }
 }

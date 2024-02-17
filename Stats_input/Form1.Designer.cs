@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             detectedIVs = new TextBox();
             atkTextBox = new TextBox();
             defTextBox = new TextBox();
@@ -43,6 +44,10 @@
             spAtkDetectedTextBox = new TextBox();
             spDefDetectedTextBox = new TextBox();
             speedDetectedTextBox = new TextBox();
+            explainingTextBox = new TextBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            statsPictureBox = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)statsPictureBox).BeginInit();
             SuspendLayout();
             // 
             // detectedIVs
@@ -136,6 +141,7 @@
             atkDetectedTextBox.Name = "atkDetectedTextBox";
             atkDetectedTextBox.Size = new Size(61, 23);
             atkDetectedTextBox.TabIndex = 9;
+            atkDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // defDetectedTextBox
             // 
@@ -143,6 +149,7 @@
             defDetectedTextBox.Name = "defDetectedTextBox";
             defDetectedTextBox.Size = new Size(61, 23);
             defDetectedTextBox.TabIndex = 10;
+            defDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // hpDetectedTextBox
             // 
@@ -150,6 +157,7 @@
             hpDetectedTextBox.Name = "hpDetectedTextBox";
             hpDetectedTextBox.Size = new Size(61, 23);
             hpDetectedTextBox.TabIndex = 11;
+            hpDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // spAtkDetectedTextBox
             // 
@@ -157,6 +165,7 @@
             spAtkDetectedTextBox.Name = "spAtkDetectedTextBox";
             spAtkDetectedTextBox.Size = new Size(61, 23);
             spAtkDetectedTextBox.TabIndex = 12;
+            spAtkDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // spDefDetectedTextBox
             // 
@@ -164,6 +173,7 @@
             spDefDetectedTextBox.Name = "spDefDetectedTextBox";
             spDefDetectedTextBox.Size = new Size(61, 23);
             spDefDetectedTextBox.TabIndex = 13;
+            spDefDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // speedDetectedTextBox
             // 
@@ -171,12 +181,42 @@
             speedDetectedTextBox.Name = "speedDetectedTextBox";
             speedDetectedTextBox.Size = new Size(61, 23);
             speedDetectedTextBox.TabIndex = 14;
+            speedDetectedTextBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // explainingTextBox
+            // 
+            explainingTextBox.Location = new Point(386, 276);
+            explainingTextBox.Name = "explainingTextBox";
+            explainingTextBox.ReadOnly = true;
+            explainingTextBox.Size = new Size(314, 23);
+            explainingTextBox.TabIndex = 15;
+            explainingTextBox.Text = "Press F7 when you want the values to automatically enter";
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(61, 4);
+            // 
+            // statsPictureBox
+            // 
+            statsPictureBox.AccessibleDescription = "";
+            statsPictureBox.BackColor = Color.FromArgb(255, 192, 192);
+            statsPictureBox.BorderStyle = BorderStyle.Fixed3D;
+            statsPictureBox.Location = new Point(12, 12);
+            statsPictureBox.Name = "statsPictureBox";
+            statsPictureBox.Size = new Size(140, 89);
+            statsPictureBox.TabIndex = 17;
+            statsPictureBox.TabStop = false;
+            statsPictureBox.DragDrop += pictureBox1_DragDrop;
+            statsPictureBox.DragEnter += statsPictureBox_DragEnter;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 562);
+            Controls.Add(statsPictureBox);
+            Controls.Add(explainingTextBox);
             Controls.Add(speedDetectedTextBox);
             Controls.Add(spDefDetectedTextBox);
             Controls.Add(spAtkDetectedTextBox);
@@ -195,6 +235,8 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)statsPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -216,5 +258,8 @@
         private TextBox spAtkDetectedTextBox;
         private TextBox spDefDetectedTextBox;
         private TextBox speedDetectedTextBox;
+        private TextBox explainingTextBox;
+        private ContextMenuStrip contextMenuStrip1;
+        private PictureBox statsPictureBox;
     }
 }
