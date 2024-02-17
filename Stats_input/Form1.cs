@@ -2,9 +2,9 @@ using System.Diagnostics;
 
 namespace Stats_input
 {
-    public partial class Form1 : Form
+    public partial class statsInputForm : Form
     {
-        public Form1()
+        public statsInputForm()
         {
             InitializeComponent();
         }

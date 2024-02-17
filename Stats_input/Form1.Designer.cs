@@ -1,6 +1,6 @@
 ﻿namespace Stats_input
 {
-    partial class Form1
+    partial class statsInputForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(statsInputForm));
             detectedIVs = new TextBox();
             atkTextBox = new TextBox();
             defTextBox = new TextBox();
@@ -52,11 +53,13 @@
             // 
             // detectedIVs
             // 
+            detectedIVs.Enabled = false;
             detectedIVs.Location = new Point(386, 50);
             detectedIVs.Name = "detectedIVs";
             detectedIVs.ReadOnly = true;
             detectedIVs.Size = new Size(100, 23);
             detectedIVs.TabIndex = 0;
+            detectedIVs.TabStop = false;
             detectedIVs.Text = "Detected IVs :";
             // 
             // atkTextBox
@@ -66,6 +69,7 @@
             atkTextBox.ReadOnly = true;
             atkTextBox.Size = new Size(100, 23);
             atkTextBox.TabIndex = 1;
+            atkTextBox.TabStop = false;
             atkTextBox.Text = "Atk";
             // 
             // defTextBox
@@ -75,6 +79,7 @@
             defTextBox.ReadOnly = true;
             defTextBox.Size = new Size(100, 23);
             defTextBox.TabIndex = 2;
+            defTextBox.TabStop = false;
             defTextBox.Text = "Def";
             // 
             // hpTextBox
@@ -84,6 +89,7 @@
             hpTextBox.ReadOnly = true;
             hpTextBox.Size = new Size(100, 23);
             hpTextBox.TabIndex = 3;
+            hpTextBox.TabStop = false;
             hpTextBox.Text = "HP";
             // 
             // spAtkTextBox
@@ -93,6 +99,7 @@
             spAtkTextBox.ReadOnly = true;
             spAtkTextBox.Size = new Size(100, 23);
             spAtkTextBox.TabIndex = 4;
+            spAtkTextBox.TabStop = false;
             spAtkTextBox.Text = "SpAtk";
             // 
             // spDefTextBox
@@ -102,6 +109,7 @@
             spDefTextBox.ReadOnly = true;
             spDefTextBox.Size = new Size(100, 23);
             spDefTextBox.TabIndex = 5;
+            spDefTextBox.TabStop = false;
             spDefTextBox.Text = "SpDef";
             // 
             // speedTextBox
@@ -111,6 +119,7 @@
             speedTextBox.ReadOnly = true;
             speedTextBox.Size = new Size(100, 23);
             speedTextBox.TabIndex = 6;
+            speedTextBox.TabStop = false;
             speedTextBox.Text = "Speed";
             // 
             // toSpypokes
@@ -140,7 +149,7 @@
             atkDetectedTextBox.Location = new Point(492, 107);
             atkDetectedTextBox.Name = "atkDetectedTextBox";
             atkDetectedTextBox.Size = new Size(61, 23);
-            atkDetectedTextBox.TabIndex = 9;
+            atkDetectedTextBox.TabIndex = 1;
             atkDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // defDetectedTextBox
@@ -148,7 +157,7 @@
             defDetectedTextBox.Location = new Point(492, 136);
             defDetectedTextBox.Name = "defDetectedTextBox";
             defDetectedTextBox.Size = new Size(61, 23);
-            defDetectedTextBox.TabIndex = 10;
+            defDetectedTextBox.TabIndex = 2;
             defDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // hpDetectedTextBox
@@ -156,7 +165,7 @@
             hpDetectedTextBox.Location = new Point(492, 78);
             hpDetectedTextBox.Name = "hpDetectedTextBox";
             hpDetectedTextBox.Size = new Size(61, 23);
-            hpDetectedTextBox.TabIndex = 11;
+            hpDetectedTextBox.TabIndex = 0;
             hpDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // spAtkDetectedTextBox
@@ -164,7 +173,7 @@
             spAtkDetectedTextBox.Location = new Point(492, 165);
             spAtkDetectedTextBox.Name = "spAtkDetectedTextBox";
             spAtkDetectedTextBox.Size = new Size(61, 23);
-            spAtkDetectedTextBox.TabIndex = 12;
+            spAtkDetectedTextBox.TabIndex = 3;
             spAtkDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // spDefDetectedTextBox
@@ -172,7 +181,7 @@
             spDefDetectedTextBox.Location = new Point(492, 194);
             spDefDetectedTextBox.Name = "spDefDetectedTextBox";
             spDefDetectedTextBox.Size = new Size(61, 23);
-            spDefDetectedTextBox.TabIndex = 13;
+            spDefDetectedTextBox.TabIndex = 4;
             spDefDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // speedDetectedTextBox
@@ -180,7 +189,7 @@
             speedDetectedTextBox.Location = new Point(492, 223);
             speedDetectedTextBox.Name = "speedDetectedTextBox";
             speedDetectedTextBox.Size = new Size(61, 23);
-            speedDetectedTextBox.TabIndex = 14;
+            speedDetectedTextBox.TabIndex = 5;
             speedDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // explainingTextBox
@@ -189,7 +198,8 @@
             explainingTextBox.Name = "explainingTextBox";
             explainingTextBox.ReadOnly = true;
             explainingTextBox.Size = new Size(314, 23);
-            explainingTextBox.TabIndex = 15;
+            explainingTextBox.TabIndex = 4;
+            explainingTextBox.TabStop = false;
             explainingTextBox.Text = "Press F7 when you want the values to automatically enter";
             // 
             // contextMenuStrip1
@@ -204,13 +214,14 @@
             statsPictureBox.BorderStyle = BorderStyle.Fixed3D;
             statsPictureBox.Location = new Point(12, 12);
             statsPictureBox.Name = "statsPictureBox";
-            statsPictureBox.Size = new Size(140, 89);
+            statsPictureBox.Size = new Size(158, 158);
+            statsPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             statsPictureBox.TabIndex = 17;
             statsPictureBox.TabStop = false;
             statsPictureBox.DragDrop += pictureBox1_DragDrop;
             statsPictureBox.DragEnter += statsPictureBox_DragEnter;
             // 
-            // Form1
+            // statsInputForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -232,9 +243,10 @@
             Controls.Add(defTextBox);
             Controls.Add(atkTextBox);
             Controls.Add(detectedIVs);
-            Name = "Form1";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "statsInputForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Stats input";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)statsPictureBox).EndInit();
             ResumeLayout(false);
