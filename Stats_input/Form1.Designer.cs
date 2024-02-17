@@ -111,22 +111,24 @@
             // toSpypokes
             // 
             toSpypokes.AutoSize = true;
-            toSpypokes.Location = new Point(436, 478);
+            toSpypokes.Location = new Point(663, 504);
             toSpypokes.Name = "toSpypokes";
-            toSpypokes.Size = new Size(60, 15);
+            toSpypokes.Size = new Size(127, 15);
             toSpypokes.TabIndex = 7;
             toSpypokes.TabStop = true;
-            toSpypokes.Text = "linkLabel1";
+            toSpypokes.Text = "Spypokes IV Calculator";
+            toSpypokes.LinkClicked += toSpypokes_LinkClicked;
             // 
             // toMarriland
             // 
             toMarriland.AutoSize = true;
-            toMarriland.Location = new Point(444, 504);
+            toMarriland.Location = new Point(663, 528);
             toMarriland.Name = "toMarriland";
-            toMarriland.Size = new Size(60, 15);
+            toMarriland.Size = new Size(128, 15);
             toMarriland.TabIndex = 8;
             toMarriland.TabStop = true;
-            toMarriland.Text = "linkLabel1";
+            toMarriland.Text = "Marriland IV Calculator";
+            toMarriland.LinkClicked += toMarriland_LinkClicked;
             // 
             // atkDetectedTextBox
             // 
