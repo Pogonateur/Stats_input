@@ -53,5 +53,21 @@ namespace Stats_input
         {
             e.Effect = DragDropEffects.Copy;
         }
+
+        private void statsInputForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.V && e.Modifiers == Keys.Control)
+            {
+                if (Clipboard.ContainsImage())
+                {
+                    statsPictureBox.Image = Clipboard.GetImage();
+                }
+            }
+        }
+
+        private void statsInputForm_Click(object sender, EventArgs e)
+        {
+            statsPictureBox.Focus();
+        }
     }
 }

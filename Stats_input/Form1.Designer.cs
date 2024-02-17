@@ -45,15 +45,14 @@
             spAtkDetectedTextBox = new TextBox();
             spDefDetectedTextBox = new TextBox();
             speedDetectedTextBox = new TextBox();
-            explainingTextBox = new TextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             statsPictureBox = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)statsPictureBox).BeginInit();
             SuspendLayout();
             // 
             // detectedIVs
             // 
-            detectedIVs.Enabled = false;
             detectedIVs.Location = new Point(386, 50);
             detectedIVs.Name = "detectedIVs";
             detectedIVs.ReadOnly = true;
@@ -192,16 +191,6 @@
             speedDetectedTextBox.TabIndex = 5;
             speedDetectedTextBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // explainingTextBox
-            // 
-            explainingTextBox.Location = new Point(386, 276);
-            explainingTextBox.Name = "explainingTextBox";
-            explainingTextBox.ReadOnly = true;
-            explainingTextBox.Size = new Size(314, 23);
-            explainingTextBox.TabIndex = 4;
-            explainingTextBox.TabStop = false;
-            explainingTextBox.Text = "Press F7 when you want the values to automatically enter";
-            // 
             // contextMenuStrip1
             // 
             contextMenuStrip1.Name = "contextMenuStrip1";
@@ -221,13 +210,22 @@
             statsPictureBox.DragDrop += pictureBox1_DragDrop;
             statsPictureBox.DragEnter += statsPictureBox_DragEnter;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(386, 280);
+            label1.Name = "label1";
+            label1.Size = new Size(308, 15);
+            label1.TabIndex = 18;
+            label1.Text = "Press F7 when you want the values to automatically enter";
+            // 
             // statsInputForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(802, 562);
+            Controls.Add(label1);
             Controls.Add(statsPictureBox);
-            Controls.Add(explainingTextBox);
             Controls.Add(speedDetectedTextBox);
             Controls.Add(spDefDetectedTextBox);
             Controls.Add(spAtkDetectedTextBox);
@@ -244,10 +242,13 @@
             Controls.Add(atkTextBox);
             Controls.Add(detectedIVs);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            KeyPreview = true;
             Name = "statsInputForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Stats input";
             Load += Form1_Load;
+            Click += statsInputForm_Click;
+            KeyDown += statsInputForm_KeyDown;
             ((System.ComponentModel.ISupportInitialize)statsPictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -270,8 +271,8 @@
         private TextBox spAtkDetectedTextBox;
         private TextBox spDefDetectedTextBox;
         private TextBox speedDetectedTextBox;
-        private TextBox explainingTextBox;
         private ContextMenuStrip contextMenuStrip1;
         private PictureBox statsPictureBox;
+        private Label label1;
     }
 }
