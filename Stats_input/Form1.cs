@@ -1,14 +1,55 @@
 using System;
 using System.Diagnostics;
+using System.Reflection.Metadata;
 using Tesseract;
 
 namespace Stats_input
 {
     public partial class statsInputForm : Form
     {
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
+        //constants for modifiers
+        private const int MOD_NONE = 0x0000;
+        private const int MOD_ALT = 0x0001;
+        private const int MOD_CONTROL = 0x0002;
+        private const int MOD_SHIFT = 0x0004;
+        private const int MOD_WIN = 0x0008;
+        
+        private const int WM_HOTKEY = 0x0312;
+
+        private const int HOTKEY_ID = 1;
+
         public statsInputForm()
         {
             InitializeComponent();
+
+            FormClosing += (s, e) => { UnregisterHotKey(Handle, HOTKEY_ID); };
+
+            RegisterHotKey(Handle, HOTKEY_ID, MOD_NONE, (int)Keys.F7);
+        }
+
+        private void StatsInputForm_FormClosing(object? sender, FormClosingEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_HOTKEY)
+            {
+                int id = m.WParam.ToInt32();
+
+                if (id == HOTKEY_ID)
+                {
+                    MessageBox.Show("Hotkey has been pressed!");
+                }
+            }
+
+            base.WndProc(ref m);
         }
 
         int[] statsArray = new int[6];
