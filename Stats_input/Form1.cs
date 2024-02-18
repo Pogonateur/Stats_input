@@ -180,33 +180,51 @@ namespace Stats_input
 
         private void hpDetectedTextBox_TextChanged(object sender, EventArgs e)
         {
-            statsArray[0] = Int32.Parse(hpDetectedTextBox.Text);
+            if (Int32.TryParse(hpDetectedTextBox.Text, out int j))
+            {
+                statsArray[0] = j;
+            }
         }
 
         private void atkDetectedTextBox_TextChanged(object sender, EventArgs e)
         {
-            statsArray[1] = Int32.Parse(atkDetectedTextBox.Text);
+            if (Int32.TryParse(atkDetectedTextBox.Text, out int j))
+            {
+                statsArray[1] = j;
+            }
         }
 
         private void defDetectedTextBox_TextChanged(object sender, EventArgs e)
         {
-            statsArray[2] = Int32.Parse(defDetectedTextBox.Text);
+            if (Int32.TryParse(defDetectedTextBox.Text, out int j))
+            {
+                statsArray[2] = j;
+            }
         }
 
         private void spAtkDetectedTextBox_TextChanged(object sender, EventArgs e)
         {
-            statsArray[3] = Int32.Parse(spAtkDetectedTextBox.Text);
+            if (Int32.TryParse(spAtkDetectedTextBox.Text, out int j))
+            {
+                statsArray[3] = j;
+            }
 
         }
 
         private void spDefDetectedTextBox_TextChanged(object sender, EventArgs e)
         {
-            statsArray[4] = Int32.Parse(spDefDetectedTextBox.Text);
+            if (Int32.TryParse(spDefDetectedTextBox.Text, out int j))
+            {
+                statsArray[4] = j;
+            }
         }
 
         private void speedDetectedTextBox_TextChanged(object sender, EventArgs e)
         {
-            statsArray[5] = Int32.Parse(speedDetectedTextBox.Text);
+            if (Int32.TryParse(speedDetectedTextBox.Text, out int j))
+            {
+                statsArray[5] = j;
+            }
         }
 
         private void hpDetectedTextBox_KeyPress(object sender, KeyPressEventArgs e)
