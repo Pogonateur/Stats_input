@@ -1,5 +1,6 @@
 using System;
 using System.Diagnostics;
+using System.Drawing.Text;
 using System.Reflection.Metadata;
 using Tesseract;
 
@@ -45,7 +46,8 @@ namespace Stats_input
 
                 if (id == HOTKEY_ID)
                 {
-                    MessageBox.Show("Hotkey has been pressed!");
+                    //MessageBox.Show("Hotkey has been pressed!");
+                    typeStats(statsArray);
                 }
             }
 
@@ -85,6 +87,7 @@ namespace Stats_input
                 if (filenames.Length > 0)
                 {
                     statsPictureBox.Image = Image.FromFile(filenames[0]);
+                    extractText();
                 }
             }
         }
@@ -106,7 +109,7 @@ namespace Stats_input
                 if (Clipboard.ContainsImage())
                 {
                     statsPictureBox.Image = Clipboard.GetImage();
-                    textExtracted();
+                    extractText();
                 }
             }
         }
@@ -116,13 +119,13 @@ namespace Stats_input
             statsPictureBox.Focus();
         }
 
-        private void textExtracted()
+        private void extractText()
         {
             var ocrengine = new TesseractEngine(@".\tessdata", "eng", EngineMode.Default);
             ocrengine.SetVariable("tessedit_char_whitelist", "0123456789");
             Bitmap bitmap = new Bitmap(statsPictureBox.Image);
             var res = ocrengine.Process(PixConverter.ToPix(bitmap));
-            //MessageBox.Show(res.GetText());
+            MessageBox.Show(res.GetText());
             setStatsIntoLabelBoxes(res.GetText());
         }
 
@@ -149,13 +152,30 @@ namespace Stats_input
             spDefDetectedTextBox.Text = statsNumbersArray[4];
             speedDetectedTextBox.Text = statsNumbersArray[5];
 
-            statsArray[0] = Int32.Parse(hpDetectedTextBox.Text);
-            statsArray[1] = Int32.Parse(atkDetectedTextBox.Text);
-            statsArray[2] = Int32.Parse(defDetectedTextBox.Text);
-            statsArray[3] = Int32.Parse(spAtkDetectedTextBox.Text);
-            statsArray[4] = Int32.Parse(spDefDetectedTextBox.Text);
-            statsArray[5] = Int32.Parse(speedDetectedTextBox.Text);
-
+            if (Int32.TryParse(hpDetectedTextBox.Text, out int j))
+            {
+                statsArray[0] = Int32.Parse(hpDetectedTextBox.Text);
+            }
+            if (Int32.TryParse(atkDetectedTextBox.Text, out int j))
+            {
+                statsArray[1] = Int32.Parse(atkDetectedTextBox.Text);
+            }
+            if (Int32.TryParse(defDetectedTextBox.Text, out int j))
+            {
+                statsArray[2] = Int32.Parse(defDetectedTextBox.Text);
+            }
+            if (Int32.TryParse(spAtkDetectedTextBox.Text, out int j))
+            {
+                statsArray[3] = Int32.Parse(spAtkDetectedTextBox.Text);
+            }
+            if (Int32.TryParse(spDefDetectedTextBox.Text, out int j))
+            {
+                statsArray[4] = Int32.Parse(spDefDetectedTextBox.Text);
+            }
+            if (Int32.TryParse(speedDetectedTextBox.Text, out int j))
+            {
+                statsArray[5] = Int32.Parse(speedDetectedTextBox.Text);
+            }
         }
 
         private void hpDetectedTextBox_TextChanged(object sender, EventArgs e)
@@ -240,6 +260,77 @@ namespace Stats_input
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void typeStats(int[] statsArr)
+        {
+            char c;
+            ushort scanCode;
+            string currentStat;
+
+            foreach (int stat in statsArr)
+            {
+                currentStat = "" + stat;
+
+                for (int i = 0; i<currentStat.Length; i++)
+                {
+                    c = char.Parse(currentStat.Substring(i, 1));
+                    scanCode = GetScanCode(c);
+                    InputSender.ClickKey(scanCode);
+                }
+                InputSender.ClickKey(0x0f);
+            }
+        }
+
+        private ushort GetScanCode(char c)
+        {
+            switch (Char.ToLower(c)) {
+                case '\n':
+                    return 0x1c;
+
+                case ')':
+                case '0':
+                    return 0x0b;
+
+                case '!':
+                case '1':
+                    return 0x02;
+
+                case '@':
+                case '2':
+                    return 0x03;
+
+                case '#':
+                case '3':
+                    return 0x04;
+
+                case '$':
+                case '4':
+                    return 0x05;
+
+                case '%':
+                case '5':
+                    return 0x06;
+
+                case '^':
+                case '6':
+                    return 0x07;
+
+                case '&':
+                case '7':
+                    return 0x08;
+
+                case '*':
+                case '8':
+                    return 0x09;
+
+                case '(':
+                case '9':
+                    return 0x0a;
+
+                default:
+                    return 00;
             }
         }
     }
