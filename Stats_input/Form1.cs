@@ -125,7 +125,7 @@ namespace Stats_input
             ocrengine.SetVariable("tessedit_char_whitelist", "0123456789");
             Bitmap bitmap = new Bitmap(statsPictureBox.Image);
             var res = ocrengine.Process(PixConverter.ToPix(bitmap));
-            MessageBox.Show(res.GetText());
+            //MessageBox.Show(res.GetText());
             setStatsIntoLabelBoxes(res.GetText());
         }
 
@@ -154,27 +154,27 @@ namespace Stats_input
 
             if (Int32.TryParse(hpDetectedTextBox.Text, out int j))
             {
-                statsArray[0] = Int32.Parse(hpDetectedTextBox.Text);
+                statsArray[0] = j;
             }
-            if (Int32.TryParse(atkDetectedTextBox.Text, out int j))
+            if (Int32.TryParse(atkDetectedTextBox.Text, out int j2))
             {
-                statsArray[1] = Int32.Parse(atkDetectedTextBox.Text);
+                statsArray[1] = j2;
             }
-            if (Int32.TryParse(defDetectedTextBox.Text, out int j))
+            if (Int32.TryParse(defDetectedTextBox.Text, out int j3))
             {
-                statsArray[2] = Int32.Parse(defDetectedTextBox.Text);
+                statsArray[2] = j3;
             }
-            if (Int32.TryParse(spAtkDetectedTextBox.Text, out int j))
+            if (Int32.TryParse(spAtkDetectedTextBox.Text, out int j4))
             {
-                statsArray[3] = Int32.Parse(spAtkDetectedTextBox.Text);
+                statsArray[3] = j4;
             }
-            if (Int32.TryParse(spDefDetectedTextBox.Text, out int j))
+            if (Int32.TryParse(spDefDetectedTextBox.Text, out int j5))
             {
-                statsArray[4] = Int32.Parse(spDefDetectedTextBox.Text);
+                statsArray[4] = j5;
             }
-            if (Int32.TryParse(speedDetectedTextBox.Text, out int j))
+            if (Int32.TryParse(speedDetectedTextBox.Text, out int j6))
             {
-                statsArray[5] = Int32.Parse(speedDetectedTextBox.Text);
+                statsArray[5] = j6;
             }
         }
 
