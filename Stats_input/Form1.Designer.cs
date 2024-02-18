@@ -146,50 +146,68 @@
             // atkDetectedTextBox
             // 
             atkDetectedTextBox.Location = new Point(492, 107);
+            atkDetectedTextBox.MaxLength = 3;
             atkDetectedTextBox.Name = "atkDetectedTextBox";
             atkDetectedTextBox.Size = new Size(61, 23);
             atkDetectedTextBox.TabIndex = 1;
             atkDetectedTextBox.TextAlign = HorizontalAlignment.Center;
+            atkDetectedTextBox.TextChanged += atkDetectedTextBox_TextChanged;
+            atkDetectedTextBox.KeyPress += atkDetectedTextBox_KeyPress;
             // 
             // defDetectedTextBox
             // 
             defDetectedTextBox.Location = new Point(492, 136);
+            defDetectedTextBox.MaxLength = 3;
             defDetectedTextBox.Name = "defDetectedTextBox";
             defDetectedTextBox.Size = new Size(61, 23);
             defDetectedTextBox.TabIndex = 2;
             defDetectedTextBox.TextAlign = HorizontalAlignment.Center;
+            defDetectedTextBox.TextChanged += defDetectedTextBox_TextChanged;
+            defDetectedTextBox.KeyPress += defDetectedTextBox_KeyPress;
             // 
             // hpDetectedTextBox
             // 
             hpDetectedTextBox.Location = new Point(492, 78);
+            hpDetectedTextBox.MaxLength = 3;
             hpDetectedTextBox.Name = "hpDetectedTextBox";
             hpDetectedTextBox.Size = new Size(61, 23);
             hpDetectedTextBox.TabIndex = 0;
             hpDetectedTextBox.TextAlign = HorizontalAlignment.Center;
+            hpDetectedTextBox.TextChanged += hpDetectedTextBox_TextChanged;
+            hpDetectedTextBox.KeyPress += hpDetectedTextBox_KeyPress;
             // 
             // spAtkDetectedTextBox
             // 
             spAtkDetectedTextBox.Location = new Point(492, 165);
+            spAtkDetectedTextBox.MaxLength = 3;
             spAtkDetectedTextBox.Name = "spAtkDetectedTextBox";
             spAtkDetectedTextBox.Size = new Size(61, 23);
             spAtkDetectedTextBox.TabIndex = 3;
             spAtkDetectedTextBox.TextAlign = HorizontalAlignment.Center;
+            spAtkDetectedTextBox.TextChanged += spAtkDetectedTextBox_TextChanged;
+            spAtkDetectedTextBox.KeyPress += spAtkDetectedTextBox_KeyPress;
             // 
             // spDefDetectedTextBox
             // 
             spDefDetectedTextBox.Location = new Point(492, 194);
+            spDefDetectedTextBox.MaxLength = 3;
             spDefDetectedTextBox.Name = "spDefDetectedTextBox";
             spDefDetectedTextBox.Size = new Size(61, 23);
             spDefDetectedTextBox.TabIndex = 4;
             spDefDetectedTextBox.TextAlign = HorizontalAlignment.Center;
+            spDefDetectedTextBox.TextChanged += spDefDetectedTextBox_TextChanged;
+            spDefDetectedTextBox.KeyPress += spDefDetectedTextBox_KeyPress;
             // 
             // speedDetectedTextBox
             // 
             speedDetectedTextBox.Location = new Point(492, 223);
+            speedDetectedTextBox.MaxLength = 3;
             speedDetectedTextBox.Name = "speedDetectedTextBox";
             speedDetectedTextBox.Size = new Size(61, 23);
             speedDetectedTextBox.TabIndex = 5;
             speedDetectedTextBox.TextAlign = HorizontalAlignment.Center;
+            speedDetectedTextBox.TextChanged += speedDetectedTextBox_TextChanged;
+            speedDetectedTextBox.KeyPress += speedDetectedTextBox_KeyPress;
             // 
             // contextMenuStrip1
             // 
